@@ -27,7 +27,7 @@ class PostForm(forms.ModelForm):
 class EditForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('header_text', 'content_text', 'image')
+        fields = ('header_text', 'content_text','category', 'image')
         widgets = {
             'header_text':forms.TextInput(attrs={'class':'form-control'}),
             'content': forms.Textarea(attrs={'class': 'form-control'}),
