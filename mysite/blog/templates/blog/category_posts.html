@@ -3,6 +3,7 @@
 <main>
         <div class="column">
             <div class="card-container">
+                <h1>By category: {{category}}</h1>
                 {% for post in post_list %}
                 <div class="single-card">
                     <h1><a href="{% url 'blog:post' post.id %}">{{post.header_text}}</a> </h1>

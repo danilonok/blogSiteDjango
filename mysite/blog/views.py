@@ -21,7 +21,7 @@ from django.template import loader
 # Create your views here.
 def index(request):
     post_list = Post.objects.order_by('-pub_date')[:20]
-    categories_list = Category.objects.all()[:5]
+    categories_list = Category.objects.all()
     context = {
         'post_list': post_list,
         'categories_list': categories_list,
@@ -35,7 +35,16 @@ def post(request, post_id):
         'post': post,
     }
     return render(request, 'blog/post.html', context)
-
+def category_posts(request, category_id):
+    category = Category.objects.filter(id=category_id)[0]
+    posts = Post.objects.filter(category = category_id)
+    categories_list = Category.objects.all()
+    context = {
+        'post_list': posts,
+        'category':category,
+        'categories_list':categories_list,
+    }
+    return render(request, 'blog/category_posts.html', context)
 
 def register_request(request):
     if request.method == "POST":
