@@ -1,0 +1,55 @@
+{% extends 'blog/base.html' %}
+{% block main_content %}
+<main>
+        <div class="column">
+            <div class="card-container">
+                {% for post in post_list %}
+                <div class="single-card">
+                    <h1><a href="{% url 'blog:post' post.id %}">{{post.header_text}}</a> </h1>
+                    <span class="creator-date">Created by {{post.author}} on {{post.pub_date}}</span>
+                    <span class="creator-date">Category: {{post.category}}</span>
+                    <hr>
+                    <img src="{{post.image.url}}" alt="" srcset="">
+                    <p class="main-text">{{post.content_text|truncatewords_html:20|safe}}</p>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="column">
+            <div class="categories-container">
+                <h1>Top Categories</h1>
+                <nav>
+                    <ul>
+                        {% for category in categories_list %}
+                        <li><a>{{category.category_name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+            <div class="categories-container">
+                <h1>Top Posts</h1>
+                <nav>
+                    <ul>
+                        {% for post in post_list %}
+                        <li><a href="{% url 'blog:post' post.id %}">{{post.header_text}}</a></li>
+
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+            <div class="categories-container">
+                <h1>Top Creators</h1>
+                <nav>
+                    <ul>
+                        <li><a>Category</a></li>
+                        <li><a>Category</a></li>
+                        <li><a>Category</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+    </main>
+{% endblock %}

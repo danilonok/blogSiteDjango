@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% block main_content %}
+<div class="blog-page">
+    <h1>{{post.header_text}}</h1>
+    <span class="creator-date">Created by {{post.author}} on {{post.pub_date}}</span>
+    <hr>
+    <img src="{{post.image.url}}" alt="" srcset="">
+    <p class="main-text">{{post.content_text|safe}}</p>
+    <div class="btn-holder">
+                        <a href="{% url 'blog:edit_post' post.id %}" class="btn">Edit Post</a>
+                        <a href="{% url 'blog:delete_post' post.id %}" class="btn">Delete Post</a>
+                    </div>
+
+</div>
+
+
+{% endblock %}
