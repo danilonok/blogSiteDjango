@@ -3,6 +3,7 @@
 <div class="blog-page">
     <h1>{{post.header_text}}</h1>
     <span class="creator-date">Created by {{post.author}} on {{post.pub_date}}</span>
+    <span class="creator-date">Category: {{post.category}}</span>
     <hr>
     <img src="{{post.image.url}}" alt="" srcset="">
     <p class="main-text">{{post.content_text|safe}}</p>
