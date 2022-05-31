@@ -100,7 +100,8 @@ body{
 }
 .single-card h1 a{
     display:block;
-    margin: 32px  0  0 70px;
+    margin-left: 70px;
+   
     font-family: 'Rozha One', serif;
     font-size: 32px;
     color:#000;
@@ -135,9 +136,17 @@ body{
 main{
     margin: 45px 50px ;
 }
-
-
-
+.col-post{
+    background: #ebe5e5;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.col-post > .text{
+    font-family: "Roboto";
+    font-size: 32px;
+    font-weight: 300;
+    text-align: center;
+}
 header{
     width: 90%;
     margin:0 auto;

@@ -35,9 +35,45 @@
             </nav>
 
     </header>
-
-        {% block main_content %}
-        {% endblock %}
+    <main>
+        <div class="column col-post">
+            {% block main_content %}
+            {% endblock %}
+        </div>
+            <div class="column">
+                <div class="categories-container">
+                    <h1>Top Categories</h1>
+                    <nav>
+                        <ul>
+                            {% for category in categories_list %}
+                            <li><a href="{% url 'blog:category_posts' category.id %}">{{category.category_name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+                <div class="categories-container">
+                    <h1>Top Posts</h1>
+                    <nav>
+                        <ul>
+                            {% for post in post_list %}
+                            <li><a href="{% url 'blog:post' post.id %}">{{post.header_text}}</a></li>
+    
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+                <div class="categories-container">
+                    <h1>Top Creators</h1>
+                    <nav>
+                        <ul>
+                            <li><a>Category</a></li>
+                            <li><a>Category</a></li>
+                            <li><a>Category</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+    </main>
     <footer>
         <span>Copyright 2022 danilonok</span>
     </footer>
